@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Post;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::get('/posts', function(){
+    $post = Post::create(['title' => 'test post',
+                 'slug'  => 'second-post',
+                 'content' => 'more s tuff'
+    ]);
+
+return $post;
+
+ });
+
 
 Route::get('/testing-the-api', function(){
     return ['message' => 'hello']; 
