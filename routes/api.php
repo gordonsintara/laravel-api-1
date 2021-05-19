@@ -14,21 +14,10 @@ use App\Post;
 |
 */
 
-Route::get('/posts', function(){
-    $post = Post::create(['title' => 'test post',
-                 'slug'  => 'second-post',
-                 'content' => 'more s tuff'
-    ]);
-
-return $post;
-
- });
 
 
-Route::get('/testing-the-api', function(){
-    return ['message' => 'hello']; 
-});
 
+Route::resource('post', 'PostController');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
